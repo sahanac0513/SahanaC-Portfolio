@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahana C - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0F172A;
+      background-image: radial-gradient(circle at top left, rgba(16, 185, 129, 0.1), transparent 30%),
+                        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.1), transparent 30%);
+      font-family: 'Inter', sans-serif;
+      color: #E2E8F0;
+      scroll-behavior: smooth;
+    }
+    .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #34D399, #60A5FA);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .project-card, .skill-card, .edu-card, .cert-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover, .skill-card:hover, .edu-card:hover, .cert-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+      border-color: #34D399;
+    }
+    .profile-pic {
+      border-radius: 9999px;
+      width: 14rem;
+      height: 14rem;
+      object-fit: cover;
+      object-position: bottom;
+      /* Aligns the top of the image with the top of the frame */
+      border: 4px solid #1E293B;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.4s ease;
+      transform: scale(1); /* Zooms the image content inside the frame */
+    }
+    .profile-pic:hover {
+      transform: scale(1.08);
+    }
+    [x-cloak] { display: none !important; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <div class="max-w-5xl mx-auto px-6 md:px-8">
+
+    <!-- Header -->
+    <header x-data="{ mobileMenuOpen: false }" class="flex justify-between items-center py-8">
+        <a href="#" class="font-heading text-xl font-bold tracking-tight">Sahana C</a>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#about" class="text-slate-400 hover:text-white transition-colors">About</a>
+            <a href="#skills" class="text-slate-400 hover:text-white transition-colors">Skills</a>
+            <a href="#education" class="text-slate-400 hover:text-white transition-colors">Education</a>
+            <a href="#certificates" class="text-slate-400 hover:text-white transition-colors">Certificates</a>
+            <a href="#projects" class="text-slate-400 hover:text-white transition-colors">Projects</a>
+            <a href="#contact" class="bg-emerald-400 text-slate-900 font-medium py-2 px-4 rounded-full hover:bg-emerald-300 transition-colors">Contact</a>
+        </nav>
+    </header>
+
+    <main class="py-16 md:py-24 space-y-24 md:space-y-32">
+      <!-- Hero -->
+      <section id="hero" class="grid md:grid-cols-3 gap-8 items-center">
+        <div class="md:col-span-2 space-y-6">
+          <h1 class="font-heading text-5xl md:text-7xl font-bold tracking-tighter">
+            Hi, I’m <span class="gradient-text">Sahana C.</span>
+          </h1>
+          <p class="text-lg text-slate-400 max-w-xl">
+            I am a second-year Information Science student passionate about <b>UI/UX design</b>, <b>web development</b>, and <b>AI-powered applications</b>. 
+            I enjoy solving problems, building interactive projects, and continuously improving my technical and soft skills.
+          </p>
+        </div>
+        <div class="relative flex justify-center items-center">
+          <img src="profile-sahana.jpg" alt="Sahana C" class="profile-pic">
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="space-y-12">
+        <div class="text-center">
+          <h2 class="font-heading text-4xl md:text-5xl font-bold">About Me</h2>
+          <p class="mt-4 text-lg text-slate-400 max-w-3xl mx-auto">
+            I’m currently pursuing Information Science Engineering at VTU. 
+            Skilled in <b>C, C++, Python, HTML, CSS</b> along with <b>UI/UX design tools like Figma and Webflow</b>. 
+            I have hands-on experience building projects like <b>LearnIn (AI-powered flashcard app with Jarvis Assistant)</b> and a <b>Python-based Tetris game</b>. 
+            I am passionate about creating meaningful designs and functional applications.
+          </p>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="space-y-12">
+        <div class="text-center">
+          <h2 class="font-heading text-4xl md:text-5xl font-bold">Skills</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="skill-card bg-slate-800 p-8 rounded-2xl">
+            <h3 class="font-heading text-2xl font-bold text-emerald-400">Technical Skills</h3>
+            <ul class="mt-4 space-y-2 text-slate-300">
+              <li>✔ HTML & Basic CSS</li>
+              <li>✔ Python</li>
+              <li>✔ C & C++</li>
+              <li>✔ UI/UX Design</li>
+              <li>✔ Familiar with Figma & Webflow</li>
+            </ul>
+          </div>
+          <div class="skill-card bg-slate-800 p-8 rounded-2xl">
+            <h3 class="font-heading text-2xl font-bold text-emerald-400">Soft Skills</h3>
+            <ul class="mt-4 space-y-2 text-slate-300">
+              <li>✔ Problem Solving</li>
+              <li>✔ Team Collaboration</li>
+              <li>✔ Creativity & Critical Thinking</li>
+              <li>✔ Adaptability</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="space-y-12">
+        <div class="text-center">
+          <h2 class="font-heading text-4xl md:text-5xl font-bold">Education</h2>
+        </div>
+        <div class="grid gap-8">
+          <div class="edu-card bg-slate-800 p-8 rounded-2xl">
+            <h3 class="text-xl font-semibold text-emerald-400">AMC Engineering College</h3>
+            <p class="text-slate-300">Currently pursuing B.E in Information Science & Engineering (2nd Year)</p>
+          </div>
+          <div class="edu-card bg-slate-800 p-8 rounded-2xl">
+            <h3 class="text-xl font-semibold text-emerald-400">Mahadeva College</h3>
+            <p class="text-slate-300">Completed PUC with PCMCS – Secured 96%. Prepared for JEE Mains, Advanced, and KCET.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificates -->
+      <section id="certificates" class="space-y-12">
+        <div class="text-center">
+          <h2 class="font-heading text-4xl md:text-5xl font-bold">Certificates</h2>
+        </div>
+        <div class="cert-card bg-slate-800 p-8 rounded-2xl text-center">
+          <h3 class="text-xl font-semibold text-emerald-400">Introduction to Cyber Security</h3>
+          <p class="text-slate-300">Successfully completed certification in Cyber Security Fundamentals.</p>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="space-y-12">
+        <div class="text-center">
+          <h2 class="font-heading text-4xl md:text-5xl font-bold">Projects</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="project-card bg-fuchsia-500 p-8 rounded-3xl group overflow-hidden">
+            <h3 class="font-heading text-2xl font-bold text-slate-900">LearnIn</h3>
+            <p class="text-slate-800 mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">AI-powered flashcard app with dynamic Q&A flipping, Jarvis AI assistant, and chatbot integration.</p>
+          </div>
+          <div class="project-card bg-amber-400 p-8 rounded-3xl group overflow-hidden">
+            <h3 class="font-heading text-2xl font-bold text-slate-900">Tetris Game</h3>
+            <p class="text-slate-800 mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Python-based mini-game implementing OOP, event handling, and core mechanics.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="space-y-12">
+        <div class="text-center">
+          <h2 class="font-heading text-3xl md:text-4xl font-bold">Let’s Connect</h2>
+          <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+            Feel free to reach out for collaborations, internships, or project discussions. You can email me directly or use the form below.
+          </p>
+        </div>
+        
+        <form action="https://formspree.io/f/meolwjgw" method="POST" class="max-w-xl mx-auto space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
+            <input type="text" name="name" id="name" autocomplete="name" required class="block w-full rounded-lg border-slate-700 bg-slate-800 p-3 text-slate-100 shadow-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+            <input type="email" name="email" id="email" autocomplete="email" required class="block w-full rounded-lg border-slate-700 bg-slate-800 p-3 text-slate-100 shadow-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Message</label>
+            <textarea name="message" id="message" rows="4" required class="block w-full rounded-lg border-slate-700 bg-slate-800 p-3 text-slate-100 shadow-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="bg-emerald-400 text-slate-900 font-medium py-3 px-8 rounded-full hover:bg-emerald-300 transition-colors w-full md:w-auto">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 pt-12 pb-12 space-y-8">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+        <div class="flex justify-center space-x-6">
+          <a href="https://github.com/sahanac0513" class="text-slate-400 hover:text-white transition-colors" aria-label="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/sahana-c-2941bb334/" class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+        <div class="text-center text-slate-500 text-sm">
+          &copy; 2025 Sahana C. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
