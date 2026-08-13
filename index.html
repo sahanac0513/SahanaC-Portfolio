@@ -3,42 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sahana C - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Portfolio of Sahana C, a 3rd-year Information Science Engineering student at VTU. Showcasing projects in AI, Web Development, and Cybersecurity, skills in Java, Python, C++, and UI/UX design.">
+  <meta name="author" content="Sahana C">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="http://localhost:3000/">
+
+  <!-- OpenGraph Meta Tags -->
+  <meta property="og:title" content="Sahana C | Information Science Engineer Portfolio">
+  <meta property="og:description" content="Explore projects in AI, Web Development, and Cybersecurity by Sahana C. Information Science Engineering student at VTU.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:3000/">
+  <meta property="og:image" content="profile-sahana.jpg">
+  
+  <title>Sahana C | Information Science Engineer Portfolio</title>
+
+  <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Scripts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sahana C",
+    "jobTitle": "Information Science Engineer Student",
+    "alumniOf": "AMC Engineering College",
+    "knowsAbout": ["UI/UX Design", "Web Development", "Python", "Java", "C++", "AI Applications", "Cybersecurity"],
+    "sameAs": [
+      "https://github.com/sahanac0513",
+      "https://www.linkedin.com/in/sahana-c-2941bb334/"
+    ]
+  }
+  </script>
+  
   <style>
-    body {
-      background-color: #0F172A;
-      background-image: radial-gradient(circle at top left, rgba(16, 185, 129, 0.1), transparent 30%),
-                        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.1), transparent 30%);
-      font-family: 'Inter', sans-serif;
-      color: #E2E8F0;
+    html {
       scroll-behavior: smooth;
     }
+    body {
+      background-color: #F5EFE6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(212, 185, 150, 0.3), transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(223, 208, 184, 0.35), transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(160, 135, 110, 0.15), transparent 50%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #3C2A21;
+    }
     .font-heading {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Playfair Display', serif;
     }
-    .glass-card {
-      background: rgba(30, 41, 59, 0.5);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(51, 65, 85, 0.5);
+    .font-accent {
+      font-family: 'Outfit', sans-serif;
     }
-    .gradient-text {
-      background: linear-gradient(to right, #34D399, #60A5FA);
+    .glass-chic {
+      background: rgba(255, 253, 249, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(160, 135, 110, 0.2);
+      box-shadow: 0 10px 30px -10px rgba(60, 42, 33, 0.05);
+    }
+    .glass-nav {
+      background: rgba(245, 239, 230, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(160, 135, 110, 0.2);
+      box-shadow: 0 10px 30px -10px rgba(60, 42, 33, 0.06);
+    }
+    .gradient-text-beige {
+      background: linear-gradient(135deg, #3C2A21 0%, #685244 50%, #A0876E 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .project-card, .skill-card, .edu-card, .cert-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project-card:hover, .skill-card:hover, .edu-card:hover, .cert-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-      border-color: #34D399;
+    .profile-ring {
+      position: relative;
+      padding: 4px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #D4B996, #A0876E, #EFE7DC);
+      box-shadow: 0 10px 30px rgba(160, 135, 110, 0.2);
     }
     .profile-pic {
       border-radius: 9999px;
@@ -46,162 +94,279 @@
       height: 14rem;
       object-fit: cover;
       object-position: bottom;
-      /* Aligns the top of the image with the top of the frame */
-      border: 4px solid #1E293B;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      transition: transform 0.4s ease;
-      transform: scale(1); /* Zooms the image content inside the frame */
+      border: 4px solid #F5EFE6;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .profile-pic:hover {
-      transform: scale(1.08);
+    .profile-ring:hover .profile-pic {
+      transform: scale(1.05);
+    }
+    .project-card, .skill-card, .edu-card, .cert-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -15px rgba(60, 42, 33, 0.15);
+    }
+    .skill-card:hover, .edu-card:hover, .cert-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(160, 135, 110, 0.45);
+      box-shadow: 0 20px 40px -15px rgba(160, 135, 110, 0.12);
+    }
+    /* WCAG Focus Visible Outline */
+    *:focus-visible {
+      outline: 2px solid #3C2A21 !important;
+      outline-offset: 3px !important;
+    }
+    /* Screen Reader Utility Class */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
     }
     [x-cloak] { display: none !important; }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-[#3C2A21] selection:text-[#F5EFE6]">
+
+  <!-- Skip to Main Content Link for Keyboard Accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-5 focus:py-2.5 focus:bg-[#3C2A21] focus:text-[#F5EFE6] focus:rounded-full focus:shadow-xl focus:outline-none focus:font-bold">
+    Skip to main content
+  </a>
 
   <div class="max-w-5xl mx-auto px-6 md:px-8">
 
     <!-- Header -->
-    <header x-data="{ mobileMenuOpen: false }" class="flex justify-between items-center py-8">
-        <a href="#" class="font-heading text-xl font-bold tracking-tight">Sahana C</a>
-        <nav class="hidden md:flex items-center space-x-8">
-            <a href="#about" class="text-slate-400 hover:text-white transition-colors">About</a>
-            <a href="#skills" class="text-slate-400 hover:text-white transition-colors">Skills</a>
-            <a href="#education" class="text-slate-400 hover:text-white transition-colors">Education</a>
-            <a href="#certificates" class="text-slate-400 hover:text-white transition-colors">Certificates</a>
-            <a href="#projects" class="text-slate-400 hover:text-white transition-colors">Projects</a>
-            <a href="#contact" class="bg-emerald-400 text-slate-900 font-medium py-2 px-4 rounded-full hover:bg-emerald-300 transition-colors">Contact</a>
+    <header x-data="{ mobileMenuOpen: false }" class="sticky top-6 z-50 my-6">
+      <div class="glass-nav rounded-full px-6 py-4 flex justify-between items-center max-w-5xl mx-auto">
+        <a href="#hero" class="font-heading text-2xl font-bold tracking-tight text-[#3C2A21] flex items-center gap-2" aria-label="Sahana C Home">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#A0876E] animate-pulse" aria-hidden="true"></span>
+          Sahana C.
+        </a>
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold" aria-label="Primary Navigation">
+          <a href="#about" class="text-[#544439] hover:text-[#3C2A21] transition-colors">About</a>
+          <a href="#skills" class="text-[#544439] hover:text-[#3C2A21] transition-colors">Skills</a>
+          <a href="#education" class="text-[#544439] hover:text-[#3C2A21] transition-colors">Education</a>
+          <a href="#certificates" class="text-[#544439] hover:text-[#3C2A21] transition-colors">Certificates</a>
+          <a href="#projects" class="text-[#544439] hover:text-[#3C2A21] transition-colors">Projects</a>
+          <a href="#contact" class="bg-[#3C2A21] text-[#F5EFE6] font-bold py-2.5 px-6 rounded-full hover:bg-[#2A1D17] hover:shadow-lg hover:shadow-[#3C2A21]/20 hover:scale-105 transition-all">Contact</a>
         </nav>
+        <!-- Mobile Menu Button -->
+        <button @click="mobileMenuOpen = !mobileMenuOpen" :aria-expanded="mobileMenuOpen.toString()" aria-controls="mobile-menu" class="md:hidden text-[#3C2A21] hover:text-[#A0876E] p-2" aria-label="Toggle Navigation Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Dropdown -->
+      <nav id="mobile-menu" x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden mt-3 glass-nav rounded-2xl p-6 space-y-4 shadow-2xl border border-[#A0876E]/20" aria-label="Mobile Navigation">
+        <a href="#about" @click="mobileMenuOpen = false" class="block text-[#544439] hover:text-[#3C2A21]">About</a>
+        <a href="#skills" @click="mobileMenuOpen = false" class="block text-[#544439] hover:text-[#3C2A21]">Skills</a>
+        <a href="#education" @click="mobileMenuOpen = false" class="block text-[#544439] hover:text-[#3C2A21]">Education</a>
+        <a href="#certificates" @click="mobileMenuOpen = false" class="block text-[#544439] hover:text-[#3C2A21]">Certificates</a>
+        <a href="#projects" @click="mobileMenuOpen = false" class="block text-[#544439] hover:text-[#3C2A21]">Projects</a>
+        <a href="#contact" @click="mobileMenuOpen = false" class="block bg-[#3C2A21] text-[#F5EFE6] font-bold py-2 px-4 rounded-full text-center">Contact</a>
+      </nav>
     </header>
 
-    <main class="py-16 md:py-24 space-y-24 md:space-y-32">
-      <!-- Hero -->
-      <section id="hero" class="grid md:grid-cols-3 gap-8 items-center">
+    <main id="main-content" class="py-12 md:py-20 space-y-28 md:space-y-36">
+      
+      <!-- Hero Section -->
+      <section id="hero" aria-labelledby="hero-title" class="grid md:grid-cols-3 gap-12 items-center pt-8">
         <div class="md:col-span-2 space-y-6">
-          <h1 class="font-heading text-5xl md:text-7xl font-bold tracking-tighter">
-            Hi, I’m <span class="gradient-text">Sahana C.</span>
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A0876E]/15 border border-[#A0876E]/30 text-[#3C2A21] text-xs font-bold tracking-widest uppercase">
+            <span>✨ Information Science Engineer</span>
+          </div>
+          <h1 id="hero-title" class="font-heading text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+            Hi, I’m <span class="gradient-text-beige">Sahana C.</span>
           </h1>
-          <p class="text-lg text-slate-400 max-w-xl">
-            I am a second-year Information Science student passionate about <b>UI/UX design</b>, <b>web development</b>, and <b>AI-powered applications</b>. 
+          <p class="text-lg text-[#544439] max-w-xl leading-relaxed font-medium">
+            I am a third-year Information Science student passionate about <strong>UI/UX design</strong>, <strong>web development</strong>, and <strong>AI-powered applications</strong>. 
             I enjoy solving problems, building interactive projects, and continuously improving my technical and soft skills.
           </p>
+          <div class="flex items-center gap-4 pt-2">
+            <a href="#projects" class="bg-[#3C2A21] text-[#F5EFE6] font-bold py-3.5 px-8 rounded-full shadow-lg shadow-[#3C2A21]/20 hover:bg-[#2A1D17] hover:shadow-[#3C2A21]/35 hover:scale-105 transition-all">Explore Projects</a>
+            <a href="#contact" class="glass-chic text-[#3C2A21] font-semibold py-3.5 px-7 rounded-full hover:bg-white transition-all">Get in Touch</a>
+          </div>
         </div>
-        <div class="relative flex justify-center items-center">
-          <img src="profile-sahana.jpg" alt="Sahana C" class="profile-pic">
-        </div>
+        <figure class="relative flex justify-center items-center m-0">
+          <div class="profile-ring">
+            <img src="profile-sahana.jpg" alt="Portrait photograph of Sahana C" width="224" height="224" fetchpriority="high" decoding="async" class="profile-pic">
+          </div>
+          <figcaption class="sr-only">Sahana C - Information Science Engineering Student</figcaption>
+        </figure>
       </section>
 
-      <!-- About -->
-      <section id="about" class="space-y-12">
-        <div class="text-center">
-          <h2 class="font-heading text-4xl md:text-5xl font-bold">About Me</h2>
-          <p class="mt-4 text-lg text-slate-400 max-w-3xl mx-auto">
+      <!-- About Section -->
+      <section id="about" aria-labelledby="about-title" class="space-y-8">
+        <div class="text-center space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#3C2A21] bg-[#A0876E]/15 px-4 py-1.5 rounded-full border border-[#A0876E]/25">Background</span>
+          <h2 id="about-title" class="font-heading text-4xl md:text-5xl font-bold text-[#3C2A21] tracking-tight">About Me</h2>
+        </div>
+        <div class="glass-chic p-8 md:p-12 rounded-3xl max-w-3xl mx-auto text-center border border-[#A0876E]/20">
+          <p class="text-lg text-[#4A3B32] leading-relaxed font-medium">
             I’m currently pursuing Information Science Engineering at VTU. 
-            Skilled in <b>C, C++, Python, HTML, CSS</b> along with <b>UI/UX design tools like Figma and Webflow</b>. 
-            I have hands-on experience building projects like <b>LearnIn (AI-powered flashcard app with Jarvis Assistant)</b> and a <b>Python-based Tetris game</b>. 
+            Skilled in <strong>C, C++, Java, Python, HTML, CSS</strong> along with <strong>UI/UX design tools like Figma and Webflow</strong>. 
+            I have hands-on experience building projects like <strong>LearnIn (AI-powered flashcard app with Jarvis Assistant)</strong>, <strong>AI Cybersecurity</strong>, <strong>Smart Campus</strong>, <strong>Career Guidance</strong>, and a <strong>Python-based Tetris game</strong>. 
             I am passionate about creating meaningful designs and functional applications.
           </p>
         </div>
       </section>
 
-      <!-- Skills -->
-      <section id="skills" class="space-y-12">
-        <div class="text-center">
-          <h2 class="font-heading text-4xl md:text-5xl font-bold">Skills</h2>
+      <!-- Skills Section -->
+      <section id="skills" aria-labelledby="skills-title" class="space-y-8">
+        <div class="text-center space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#3C2A21] bg-[#A0876E]/15 px-4 py-1.5 rounded-full border border-[#A0876E]/25">Toolkit</span>
+          <h2 id="skills-title" class="font-heading text-4xl md:text-5xl font-bold text-[#3C2A21] tracking-tight">Skills &amp; Expertise</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="skill-card bg-slate-800 p-8 rounded-2xl">
-            <h3 class="font-heading text-2xl font-bold text-emerald-400">Technical Skills</h3>
-            <ul class="mt-4 space-y-2 text-slate-300">
-              <li>✔ HTML & Basic CSS</li>
-              <li>✔ Python</li>
-              <li>✔ C & C++</li>
-              <li>✔ UI/UX Design</li>
-              <li>✔ Familiar with Figma & Webflow</li>
+          <article class="skill-card glass-chic p-8 rounded-3xl space-y-6 border border-[#A0876E]/20">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 bg-[#A0876E]/15 rounded-xl border border-[#A0876E]/25 text-[#3C2A21]" aria-hidden="true">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+              </div>
+              <h3 class="font-heading text-2xl font-bold text-[#3C2A21]">Technical Skills</h3>
+            </div>
+            <ul class="space-y-3 text-[#4A3B32] font-medium">
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#A0876E]" aria-hidden="true"></span> Java</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#A0876E]" aria-hidden="true"></span> Python</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#A0876E]" aria-hidden="true"></span> C &amp; C++</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#A0876E]" aria-hidden="true"></span> HTML &amp; Basic CSS</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#A0876E]" aria-hidden="true"></span> UI/UX Design</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#A0876E]" aria-hidden="true"></span> Familiar with Figma &amp; Webflow</li>
             </ul>
-          </div>
-          <div class="skill-card bg-slate-800 p-8 rounded-2xl">
-            <h3 class="font-heading text-2xl font-bold text-emerald-400">Soft Skills</h3>
-            <ul class="mt-4 space-y-2 text-slate-300">
-              <li>✔ Problem Solving</li>
-              <li>✔ Team Collaboration</li>
-              <li>✔ Creativity & Critical Thinking</li>
-              <li>✔ Adaptability</li>
+          </article>
+          <article class="skill-card glass-chic p-8 rounded-3xl space-y-6 border border-[#A0876E]/20">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 bg-[#D4B996]/25 rounded-xl border border-[#D4B996]/40 text-[#3C2A21]" aria-hidden="true">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </div>
+              <h3 class="font-heading text-2xl font-bold text-[#3C2A21]">Soft Skills</h3>
+            </div>
+            <ul class="space-y-3 text-[#4A3B32] font-medium">
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#D4B996]" aria-hidden="true"></span> Problem Solving</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#D4B996]" aria-hidden="true"></span> Team Collaboration</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#D4B996]" aria-hidden="true"></span> Creativity &amp; Critical Thinking</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#D4B996]" aria-hidden="true"></span> Adaptability</li>
             </ul>
-          </div>
+          </article>
         </div>
       </section>
 
-      <!-- Education -->
-      <section id="education" class="space-y-12">
-        <div class="text-center">
-          <h2 class="font-heading text-4xl md:text-5xl font-bold">Education</h2>
+      <!-- Education Section -->
+      <section id="education" aria-labelledby="education-title" class="space-y-8">
+        <div class="text-center space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#3C2A21] bg-[#A0876E]/15 px-4 py-1.5 rounded-full border border-[#A0876E]/25">Academic Journey</span>
+          <h2 id="education-title" class="font-heading text-4xl md:text-5xl font-bold text-[#3C2A21] tracking-tight">Education</h2>
         </div>
-        <div class="grid gap-8">
-          <div class="edu-card bg-slate-800 p-8 rounded-2xl">
-            <h3 class="text-xl font-semibold text-emerald-400">AMC Engineering College</h3>
-            <p class="text-slate-300">Currently pursuing B.E in Information Science & Engineering (2nd Year)</p>
-          </div>
-          <div class="edu-card bg-slate-800 p-8 rounded-2xl">
-            <h3 class="text-xl font-semibold text-emerald-400">Mahadeva College</h3>
-            <p class="text-slate-300">Completed PUC with PCMCS – Secured 96%. Prepared for JEE Mains, Advanced, and KCET.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certificates -->
-      <section id="certificates" class="space-y-12">
-        <div class="text-center">
-          <h2 class="font-heading text-4xl md:text-5xl font-bold">Certificates</h2>
-        </div>
-        <div class="cert-card bg-slate-800 p-8 rounded-2xl text-center">
-          <h3 class="text-xl font-semibold text-emerald-400">Introduction to Cyber Security</h3>
-          <p class="text-slate-300">Successfully completed certification in Cyber Security Fundamentals.</p>
+        <div class="grid gap-6">
+          <article class="edu-card glass-chic p-8 rounded-3xl border border-[#A0876E]/20">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-[#3C2A21] font-heading">AMC Engineering College</h3>
+              <span class="text-xs font-bold bg-[#3C2A21] text-[#F5EFE6] px-3.5 py-1 rounded-full">Present</span>
+            </div>
+            <p class="text-[#4A3B32] leading-relaxed font-medium">Currently pursuing B.E in Information Science &amp; Engineering (3rd Year)</p>
+          </article>
+          <article class="edu-card glass-chic p-8 rounded-3xl border border-[#A0876E]/20">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-[#3C2A21] font-heading">Mahadeva College</h3>
+              <span class="text-xs font-bold bg-[#D4B996] text-[#3C2A21] px-3.5 py-1 rounded-full">PUC Completed</span>
+            </div>
+            <p class="text-[#4A3B32] leading-relaxed font-medium">Completed PUC with PCMCS – Secured 96%. Prepared for JEE Mains, Advanced, and KCET.</p>
+          </article>
         </div>
       </section>
 
-      <!-- Projects -->
-      <section id="projects" class="space-y-12">
-        <div class="text-center">
-          <h2 class="font-heading text-4xl md:text-5xl font-bold">Projects</h2>
+      <!-- Certificates Section -->
+      <section id="certificates" aria-labelledby="certificates-title" class="space-y-8">
+        <div class="text-center space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#3C2A21] bg-[#A0876E]/15 px-4 py-1.5 rounded-full border border-[#A0876E]/25">Qualifications</span>
+          <h2 id="certificates-title" class="font-heading text-4xl md:text-5xl font-bold text-[#3C2A21] tracking-tight">Certificates</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <article class="cert-card glass-chic p-8 rounded-3xl text-center space-y-3 border border-[#A0876E]/20">
+            <div class="w-12 h-12 bg-[#A0876E]/15 rounded-2xl flex items-center justify-center border border-[#A0876E]/25 text-[#3C2A21] mx-auto" aria-hidden="true">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#3C2A21] font-heading">Programming with Python</h3>
+            <p class="text-[#544439] text-sm font-medium">Successfully completed certification in Python Programming.</p>
+          </article>
+          <article class="cert-card glass-chic p-8 rounded-3xl text-center space-y-3 border border-[#A0876E]/20">
+            <div class="w-12 h-12 bg-[#A0876E]/15 rounded-2xl flex items-center justify-center border border-[#A0876E]/25 text-[#3C2A21] mx-auto" aria-hidden="true">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#3C2A21] font-heading">Introduction to Cyber Security</h3>
+            <p class="text-[#544439] text-sm font-medium">Successfully completed certification in Cyber Security Fundamentals.</p>
+          </article>
+          <article class="cert-card glass-chic p-8 rounded-3xl text-center space-y-3 border border-[#A0876E]/20">
+            <div class="w-12 h-12 bg-[#A0876E]/15 rounded-2xl flex items-center justify-center border border-[#A0876E]/25 text-[#3C2A21] mx-auto" aria-hidden="true">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7c0-2-1.5-3-3.5-3h-9C5.5 4 4 5 4 7zm0 5h16M4 12c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#3C2A21] font-heading">Introduction to SQL</h3>
+            <p class="text-[#544439] text-sm font-medium">Successfully completed certification in Database &amp; SQL Fundamentals.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" aria-labelledby="projects-title" class="space-y-8">
+        <div class="text-center space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#3C2A21] bg-[#A0876E]/15 px-4 py-1.5 rounded-full border border-[#A0876E]/25">Portfolio</span>
+          <h2 id="projects-title" class="font-heading text-4xl md:text-5xl font-bold text-[#3C2A21] tracking-tight">Projects</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="project-card bg-fuchsia-500 p-8 rounded-3xl group overflow-hidden">
-            <h3 class="font-heading text-2xl font-bold text-slate-900">LearnIn</h3>
-            <p class="text-slate-800 mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">AI-powered flashcard app with dynamic Q&A flipping, Jarvis AI assistant, and chatbot integration.</p>
-          </div>
-          <div class="project-card bg-amber-400 p-8 rounded-3xl group overflow-hidden">
-            <h3 class="font-heading text-2xl font-bold text-slate-900">Tetris Game</h3>
-            <p class="text-slate-800 mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Python-based mini-game implementing OOP, event handling, and core mechanics.</p>
-          </div>
+          <article class="project-card bg-[#3C2A21] p-8 rounded-3xl group overflow-hidden border border-[#3C2A21]">
+            <h3 class="font-heading text-2xl font-bold text-[#F5EFE6]">LearnIn</h3>
+            <p class="text-[#D4B996] mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 text-sm leading-relaxed font-medium">AI-powered flashcard app with dynamic Q&amp;A flipping, Jarvis AI assistant, and chatbot integration.</p>
+          </article>
+          <article class="project-card bg-[#FFFDF9]/90 p-8 rounded-3xl group overflow-hidden border border-[#A0876E]/20">
+            <h3 class="font-heading text-2xl font-bold text-[#3C2A21]">AI Cybersecurity</h3>
+            <p class="text-[#544439] mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 text-sm leading-relaxed font-medium">AI-powered phishing detection and real-time security alerts.</p>
+          </article>
+          <article class="project-card bg-[#3C2A21] p-8 rounded-3xl group overflow-hidden border border-[#3C2A21]">
+            <h3 class="font-heading text-2xl font-bold text-[#F5EFE6]">Smart Campus</h3>
+            <p class="text-[#D4B996] mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 text-sm leading-relaxed font-medium">Student platform for attendance, timetable, and learning.</p>
+          </article>
+          <article class="project-card bg-[#FFFDF9]/90 p-8 rounded-3xl group overflow-hidden border border-[#A0876E]/20">
+            <h3 class="font-heading text-2xl font-bold text-[#3C2A21]">Career Guidance</h3>
+            <p class="text-[#544439] mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 text-sm leading-relaxed font-medium">AI-powered personalized career recommendations.</p>
+          </article>
+          <article class="project-card bg-[#3C2A21] p-8 rounded-3xl group overflow-hidden border border-[#3C2A21]">
+            <h3 class="font-heading text-2xl font-bold text-[#F5EFE6]">Tetris Game</h3>
+            <p class="text-[#D4B996] mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 text-sm leading-relaxed font-medium">Python-based mini-game implementing OOP, event handling, and core mechanics.</p>
+          </article>
         </div>
       </section>
 
-      <!-- Contact -->
-      <section id="contact" class="space-y-12">
-        <div class="text-center">
-          <h2 class="font-heading text-3xl md:text-4xl font-bold">Let’s Connect</h2>
-          <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
-            Feel free to reach out for collaborations, internships, or project discussions. You can email me directly or use the form below.
+      <!-- Contact Section -->
+      <section id="contact" aria-labelledby="contact-title" class="space-y-8">
+        <div class="text-center space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#3C2A21] bg-[#A0876E]/15 px-4 py-1.5 rounded-full border border-[#A0876E]/25">Get In Touch</span>
+          <h2 id="contact-title" class="font-heading text-3xl md:text-5xl font-bold text-[#3C2A21] tracking-tight">Let’s Connect</h2>
+          <p class="text-[#544439] max-w-xl mx-auto text-sm md:text-base font-medium">
+            Feel free to reach out for collaborations, internships, or project discussions.
           </p>
         </div>
         
-        <form action="https://formspree.io/f/meolwjgw" method="POST" class="max-w-xl mx-auto space-y-6">
+        <form action="https://formspree.io/f/meolwjgw" method="POST" class="max-w-xl mx-auto glass-chic p-8 md:p-10 rounded-3xl space-y-6 border border-[#A0876E]/20">
           <div>
-            <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
-            <input type="text" name="name" id="name" autocomplete="name" required class="block w-full rounded-lg border-slate-700 bg-slate-800 p-3 text-slate-100 shadow-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+            <label for="name" class="block text-xs font-bold uppercase tracking-wider text-[#3C2A21] mb-2">Full Name</label>
+            <input type="text" name="name" id="name" autocomplete="name" required aria-required="true" placeholder="Sahana C" class="block w-full rounded-xl border border-[#A0876E]/30 bg-[#FFFDF9]/90 p-3.5 text-[#3C2A21] placeholder:text-[#A0876E]/50 shadow-sm focus:border-[#3C2A21] focus:ring-1 focus:ring-[#3C2A21] focus:outline-none transition-all">
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
-            <input type="email" name="email" id="email" autocomplete="email" required class="block w-full rounded-lg border-slate-700 bg-slate-800 p-3 text-slate-100 shadow-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+            <label for="email" class="block text-xs font-bold uppercase tracking-wider text-[#3C2A21] mb-2">Email Address</label>
+            <input type="email" name="email" id="email" autocomplete="email" required aria-required="true" placeholder="your.email@example.com" class="block w-full rounded-xl border border-[#A0876E]/30 bg-[#FFFDF9]/90 p-3.5 text-[#3C2A21] placeholder:text-[#A0876E]/50 shadow-sm focus:border-[#3C2A21] focus:ring-1 focus:ring-[#3C2A21] focus:outline-none transition-all">
           </div>
           <div>
-            <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Message</label>
-            <textarea name="message" id="message" rows="4" required class="block w-full rounded-lg border-slate-700 bg-slate-800 p-3 text-slate-100 shadow-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition"></textarea>
+            <label for="message" class="block text-xs font-bold uppercase tracking-wider text-[#3C2A21] mb-2">Message</label>
+            <textarea name="message" id="message" rows="4" required aria-required="true" placeholder="Hi Sahana, I'd love to connect..." class="block w-full rounded-xl border border-[#A0876E]/30 bg-[#FFFDF9]/90 p-3.5 text-[#3C2A21] placeholder:text-[#A0876E]/50 shadow-sm focus:border-[#3C2A21] focus:ring-1 focus:ring-[#3C2A21] focus:outline-none transition-all"></textarea>
           </div>
-          <div class="text-center">
-            <button type="submit" class="bg-emerald-400 text-slate-900 font-medium py-3 px-8 rounded-full hover:bg-emerald-300 transition-colors w-full md:w-auto">
+          <div class="text-center pt-2">
+            <button type="submit" class="bg-[#3C2A21] text-[#F5EFE6] font-bold py-3.5 px-8 rounded-full shadow-lg shadow-[#3C2A21]/20 hover:bg-[#2A1D17] hover:shadow-[#3C2A21]/35 hover:scale-105 transition-all w-full md:w-auto">
               Send Message
             </button>
           </div>
@@ -210,13 +375,13 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 pt-12 pb-12 space-y-8">
-      <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-        <div class="flex justify-center space-x-6">
-          <a href="https://github.com/sahanac0513" class="text-slate-400 hover:text-white transition-colors" aria-label="GitHub">GitHub</a>
-          <a href="https://www.linkedin.com/in/sahana-c-2941bb334/" class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">LinkedIn</a>
-        </div>
-        <div class="text-center text-slate-500 text-sm">
+    <footer class="border-t border-[#A0876E]/20 py-12 space-y-6">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <nav class="flex justify-center space-x-6" aria-label="Social Media Links">
+          <a href="https://github.com/sahanac0513" class="text-[#3C2A21] hover:text-[#A0876E] font-semibold transition-colors" aria-label="Sahana C on GitHub (opens in a new tab)" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/sahana-c-2941bb334/" class="text-[#3C2A21] hover:text-[#A0876E] font-semibold transition-colors" aria-label="Sahana C on LinkedIn (opens in a new tab)" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+        <div class="text-center text-[#544439]/70 text-sm font-medium">
           &copy; 2025 Sahana C. All Rights Reserved.
         </div>
       </div>
